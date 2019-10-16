@@ -24,33 +24,48 @@ const styles = theme => ({
   }
 })
 
-const customers=[
-  {
-  'id' : 1,
-  'image' : 'http://placeimg.com/64/64/1',
-  'name' : '홍길동1',
-  'birthday' : '960720',
-  'gender' : '남자',
-  'job' : '학생'
-},
-{
-  'id' : 2,
-  'image' : 'http://placeimg.com/64/64/2',
-  'name' : '홍길동2',
-  'birthday' : '960720',
-  'gender' : '남자',
-  'job' : '프로그래머'
-},
-{
-  'id' : 3,
-  'image' : 'http://placeimg.com/64/64/3',
-  'name' : '홍길동3',
-  'birthday' : '960720',
-  'gender' : '남자',
-  'job' : '디자이너'
-}
-]
+// 하드코딩 제거
+// const customers=[
+//   {
+//   'id' : 1,
+//   'image' : 'http://placeimg.com/64/64/1',
+//   'name' : '홍길동1',
+//   'birthday' : '960720',
+//   'gender' : '남자',
+//   'job' : '학생'
+// },
+// {
+//   'id' : 2,
+//   'image' : 'http://placeimg.com/64/64/2',
+//   'name' : '홍길동2',
+//   'birthday' : '960720',
+//   'gender' : '남자',
+//   'job' : '프로그래머'
+// },
+// {
+//   'id' : 3,
+//   'image' : 'http://placeimg.com/64/64/3',
+//   'name' : '홍길동3',
+//   'birthday' : '960720',
+//   'gender' : '남자',
+//   'job' : '디자이너'
+// }
+// ]
 class App extends Component {
+
+  state = {
+    customers : ""
+  }
+
+  componentDidMount(){ 
+    this.callApi().then(res => this.setState({customers:res})).catch(err => console.log(err));
+  }
+
+  callApi = async () => {
+    const response = await fetch('/api/customers');
+    const body = await response.json();
+    return body;
+  }
 render(){
   const { classes } = this.props;
   return(
@@ -68,7 +83,9 @@ render(){
           </TableRow>
         </TableHead>
         <TableBody>
-          {customers.map(c => { return (<Customer id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job}/>)})}
+          {this.state.customers ?
+           this.state.customers.map(c => { return (<Customer id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job}/>)})
+           : "" }
         </TableBody>
       </Table>
 

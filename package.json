@@ -1,32 +1,16 @@
 {
-  "name": "management",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.5.1",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "management",
+    "version": "1.0.0",
+    "script": {
+        "client": "cd client && yarn start",
+        "server": "nodemon server.js",
+        "dev": "concurrently --kill-other-on-fail \"yarn server\" \"yarn  client\""
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "concurrently": "4.1.1"
+    }
 }

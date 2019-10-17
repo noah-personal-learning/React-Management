@@ -1,6 +1,7 @@
 import React from 'react';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import CustomerDel from './CustomerDel';
 
 {/*용도 별로 구분하여 관리하는 클래스를 재 조합하여 단 하나의 클래스만 Export*/ }
 class Customer extends React.Component{
@@ -17,6 +18,7 @@ class Customer extends React.Component{
                 <TableCell>{this.props.birthday}</TableCell>
                 <TableCell>{this.props.gender}</TableCell>
                 <TableCell>{this.props.job}</TableCell>
+                <TableCell><CustomerDel stateRefresh={this.props.stateRefresh} id={this.props.id}/></TableCell>
             </TableRow>
         
         )

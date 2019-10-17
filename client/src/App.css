@@ -1,3 +1,8 @@
 .gray-background{
   background: darkgrey;
 }
+
+img{
+  max-width: 64px;
+  max-height: 64px;
+}

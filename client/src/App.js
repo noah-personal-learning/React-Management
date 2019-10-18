@@ -203,6 +203,7 @@ render(){
   const cellList = ["번호", "이미지", "이름", "생년월일", "성별", "직업", "설정"];
   return(
     <div  className={classes.root}>
+      {/* App Bar */ }
       <AppBar position="static">
         <Toolbar>
           <IconButton

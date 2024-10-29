@@ -8,8 +8,8 @@
     },
     "dependencies": {
         "@material-ui/icons": "^4.5.1",
-        "body-parser": "^1.20.1",
-        "express": "^4.19.2",
+        "body-parser": "^1.20.3",
+        "express": "^4.21.0",
         "multer": "^1.4.2",
         "mysql": "^2.18.0"
     },
